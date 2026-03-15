@@ -1,7 +1,7 @@
 ---
 name: image-reader
 description: >
-  图片识别与理解工具。调用豆包多模态模型（doubao-seed-2.0-pro）分析图片内容，支持 OCR 文字提取和图片描述。
+  图片识别与理解工具。调用多模态模型（ 如 doubao-seed-2.0-pro、kimi-k2.5）分析图片内容，支持 OCR 文字提取和图片描述。
   当用户发送截图、图片，需要识别图片中的文字或理解图片内容时使用此 skill。
 compatibility:
   requires:
