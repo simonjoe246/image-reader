@@ -57,9 +57,9 @@ python image_reader.py image.png -p "详细描述这张图片"
 
 | 配置项 | 说明 | 默认值 |
 |--------|------|--------|
-| `api_base` | API 基础 URL | https://ark.cn-beijing.volces.com/api/coding/v3 |
+| `api_base` | API 基础 URL（模型提供商 url，OpenAI API 接口） | https://ark.cn-beijing.volces.com/api/coding/v3 |
 | `api_key` | API 密钥 | （内置） |
-| `model` | 模型名称 | doubao-seed-2.0-pro（或其他支持图片输入的多模态模型，如 kimi-k2.5） |
+| `model` | 模型名称（ 必须为支持图片输入的多模态模型，如 kimi-k2.5） | doubao-seed-2.0-pro |
 | `system_prompt` | 系统提示词 | （见 config.yaml） |
 
 ## 依赖
