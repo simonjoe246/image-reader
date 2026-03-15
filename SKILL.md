@@ -1,8 +1,8 @@
 ---
 name: image-reader
 description: >
-  图片识别与理解工具。调用多模态模型（ 如 doubao-seed-2.0-pro、kimi-k2.5）分析图片内容，支持 OCR 文字提取和图片描述。
-  当用户发送截图、图片，需要识别图片中的文字或理解图片内容时使用此 skill。
+  Image recognition and understanding tool. Uses a multimodal model (e.g. doubao-seed-2.0-pro, kimi-k2.5) to analyze image content and supports OCR text extraction and image description.
+  Use this skill when a user sends a screenshot or image and needs the text extracted or the image content understood.
 compatibility:
   requires:
     - Python 3
@@ -12,65 +12,65 @@ compatibility:
 
 # Image Reader Skill
 
-图片识别与理解工具，调用豆包多模态模型分析图片内容。
+Image recognition and understanding tool that leverages Doubao multimodal models to analyze image content.
 
 ---
 
-## 功能
+## Features
 
-- **文字提取 (OCR)**：从图片中提取文字内容，适用于文档、截图、海报、菜单等
-- **图片描述**：生成图片的详细描述，适用于照片、插画、表情包、UI 界面等
-- **通用分析**：根据图片类型自动选择合适的分析方式
+- **Text Extraction (OCR)**: Extract text from images, suitable for documents, screenshots, posters, menus, etc.
+- **Image Description**: Generate detailed descriptions of images, suitable for photos, illustrations, memes, UI screens, etc.
+- **General Analysis**: Automatically choose the best analysis strategy based on the image type.
 
 ---
 
-## API 配置
+## API Configuration
 
-| 项目 | 内容 |
+| Item | Value |
 |------|------|
-| API 地址 | `https://ark.cn-beijing.volces.com/api/coding/v3` |
-| 模型 | `doubao-seed-2.0-pro` |
-| 认证 | API Key（已在 config.yaml 中配置）|
+| API Endpoint | `https://ark.cn-beijing.volces.com/api/coding/v3` |
+| Model | `doubao-seed-2.0-pro` |
+| Authentication | API Key (configured in config.yaml) |
 
 ---
 
-## 使用方式
+## Usage
 
-### 命令行
+### Command Line
 
 ```bash
-# 通用分析
+# General analysis
 python image_reader.py /path/to/image.png
 
-# 提取文字（OCR）
-python image_reader.py /path/to/image.png -p "提取图片中的所有文字内容"
+# Extract text (OCR)
+python image_reader.py /path/to/image.png -p "Extract all text from the image"
 
-# 描述图片
-python image_reader.py /path/to/image.png -p "详细描述这张图片的内容"
+# Describe the image
+python image_reader.py /path/to/image.png -p "Describe this image in detail"
 ```
 
-### OpenClaw Skill 调用
+### OpenClaw Skill Invocation
 
-安装后可通过自然语言调用：
+Once installed, you can invoke it using natural language:
 
 ```yaml
-分析这张图片
-提取图片中的文字
-描述一下这个截图
+Analyze this image
+Extract the text from the image
+Describe this screenshot
 ```
 
 ---
 
-## 返回结果
+## Output
 
-- **文字图片**：返回提取的全部文字内容，保持原有格式
-- **非文字图片**：返回详细的场景描述，包括物体、人物、颜色、风格等
-- **混合内容**：同时提供文字提取和视觉描述
+- **Text-heavy images**: Returns all extracted text, preserving original formatting.
+- **Non-text images**: Returns a detailed scene description, including objects, people, colors, style, etc.
+- **Mixed content**: Provides both text extraction and a visual description.
 
 ---
 
-## 技术细节
+## Technical Details
 
-- 使用 OpenAI 兼容 API 调用豆包多模态模型
-- 图片编码为 base64 后传输
-- 系统提示词会根据图片类型自动选择合适的分析策略
+- Uses an OpenAI-compatible API to call Doubao multimodal models
+- Images are sent as base64-encoded data
+- The system prompt adapts to the image type to select the most appropriate analysis strategy

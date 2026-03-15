@@ -1,73 +1,73 @@
 # Image Reader Skill
 
-图片识别与理解 Skill，调用豆包多模态模型分析图片内容。
+Image recognition and understanding skill that leverages Doubao multimodal models to analyze image content.
 
-## 功能
+## Features
 
-- **文字提取 (OCR)**：从图片中提取文字内容
-- **图片描述**：生成图片的详细描述
-- **通用分析**：根据图片类型自动选择合适的分析方式
+- **Text Extraction (OCR)**: Extract text content from images
+- **Image Description**: Generate detailed descriptions of images
+- **General Analysis**: Automatically choose the best analysis strategy based on the image type
 
-## 快速开始
+## Quick Start
 
-1. 确保已安装依赖：
+1. Make sure dependencies are installed:
 ```bash
 pip install -r requirements.txt
 ```
 
-2. 配置 API 密钥（已内置默认配置，可直接使用）
+2. Configure the API key (default configuration is built in and can be used directly)
 
-3. 测试：
+3. Test:
 ```bash
 python image_reader.py /path/to/image.png
 ```
 
-## 使用方法
+## Usage
 
-### 命令行
+### Command Line
 
 ```bash
-# 通用分析
+# General analysis
 python image_reader.py image.png
 
-# 提取文字
-python image_reader.py image.png -p "提取所有文字"
+# Extract text
+python image_reader.py image.png -p "Extract all text"
 
-# 描述图片
-python image_reader.py image.png -p "详细描述这张图片"
+# Describe the image
+python image_reader.py image.png -p "Describe this image in detail"
 ```
 
-### 作为 OpenClaw Skill
+### As an OpenClaw Skill
 
-安装后，可以通过以下方式调用：
+After installation, you can invoke it like this:
 
 ```yaml
-# 通用图片分析
-使用 image_reader 分析 /path/to/image.png
+# General image analysis
+Use image_reader to analyze /path/to/image.png
 
-# 提取文字
-使用 read_image_text 提取 /path/to/image.png 的文字
+# Extract text
+Use read_image_text to extract text from /path/to/image.png
 
-# 描述图片
-使用 describe_image 描述 /path/to/image.png
+# Describe image
+Use describe_image to describe /path/to/image.png
 ```
 
-## 配置项
-修改 `config.yaml` 
+## Configuration
+Modify `config.yaml`
 
-| 配置项 | 说明 | 默认值 |
+| Key | Description | Default |
 |--------|------|--------|
-| `api_base` | API 基础 URL（模型提供商 url，OpenAI API 接口） | https://ark.cn-beijing.volces.com/api/coding/v3 |
-| `api_key` | API 密钥 | （内置） |
-| `model` | 模型名称（ 必须为支持图片输入的多模态模型，如 kimi-k2.5） | doubao-seed-2.0-pro |
-| `system_prompt` | 系统提示词 | （见 config.yaml） |
+| `api_base` | API base URL (model provider URL / OpenAI-compatible endpoint) | https://ark.cn-beijing.volces.com/api/coding/v3 |
+| `api_key` | API key | (built-in) |
+| `model` | Model name (must be a multimodal model that supports image input, e.g. kimi-k2.5) | doubao-seed-2.0-pro |
+| `system_prompt` | System prompt | (see config.yaml) |
 
-## 依赖
+## Dependencies
 
 - Python 3.8+
 - openai >= 1.0.0
 - pyyaml >= 6.0
 
-## 许可
+## License
 
 MIT
